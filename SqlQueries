@@ -1,0 +1,50 @@
+CREATE TABLE customers (
+    ID INT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(50) NOT NULL,
+    age TINYINT UNSIGNED NOT NULL,
+    address VARCHAR(50) NOT NULL,
+    phone VARCHAR(15) NOT NULL UNIQUE,
+    suburb VARCHAR(15) NOT NULL,
+    post_code CHAR(4) NOT NULL,
+    state CHAR(3) NOT NULL
+);
+
+INSERT INTO customers (name, age, address, phone, suburb, post_code, state) VALUES
+('John Doe', 30, '123 Main St', '0412345678', 'Sydney', '2000', 'NSW'),
+('Jane Smith', 25, '456 Elm St', '0423456789', 'Melbourne', '3000', 'VIC'),
+('Jim Brown', 40, '789 Oak St', '0434567890', 'Brisbane', '4000', 'QLD'),
+('Lisa White', 35, '321 Pine St', '0445678901', 'Perth', '6000', 'WA'),
+('Paul Black', 28, '654 Cedar St', '0456789012', 'Adelaide', '5000', 'SA');
+
+SELECT * FROM customers;
+
+SELECT name FROM customers;
+
+SELECT name, phone FROM customers;
+
+SELECT name FROM customers WHERE state = 'WA';
+
+SELECT name, phone FROM customers WHERE state = 'WA';
+
+SELECT post_code FROM customers WHERE state != 'NSW';
+
+SELECT address, suburb, post_code FROM customers WHERE state = 'WA' OR state = 'SA';
+
+SELECT DISTINCT state FROM customers;
+
+SELECT name FROM customers ORDER BY name;
+
+SELECT name, state FROM customers ORDER BY state;
+
+SELECT DISTINCT address, state, post_code FROM customers;
+
+SELECT name FROM customers WHERE suburb = 'Melbourne' OR suburb = 'Perth' OR suburb = 'Canberra' OR suburb = 'Sydney' OR suburb = 'Brisbane' OR suburb = 'Adelaide' OR suburb = 'Darwin' OR suburb = 'Hobart' ORDER BY state DESC;
+
+DELETE FROM customers WHERE age = 18;
+
+UPDATE customers SET post_code = 6028 WHERE suburb = 'Joondalup';
+
+CREATE INDEX phone_index ON customers (phone);
+
+CREATE INDEX full_address ON customers (address, suburb, post_code, state);
+
