@@ -8,7 +8,7 @@ This project provides a comprehensive example of managing a customers database u
 This repository is a valuable resource for students, developers and database administrators, helping users:
   - Understand SQL database structure and management.
   - Practice writting and optimizing SQL queries.
-  - Learn how to craete and use indexes to improve query performance.
+  - Learn how to create and use indexes to improve query performance.
 
 ## Table Structure
 The `customers` table stores:
